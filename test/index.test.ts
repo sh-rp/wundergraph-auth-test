@@ -27,3 +27,26 @@ describe('test Countries API', () => {
 		expect(result.data?.countries_continents.length).toBe(7);
 	});
 });
+
+
+describe('typescript ops', () => {
+	test('test op 1', async () => {
+	
+		const result = await wg.client().query({
+			operationName: 'op1',
+			input: {
+				content: 'Hello World'
+			},
+		});
+		expect(result.data?.content).toBe('Hello World');
+	});
+
+	test('test op 2', async () => {
+	
+		const result = await wg.client().query({
+			operationName: 'op2',
+		});
+		expect(result.data?.content).toBe('Hello World');
+	});
+
+});
